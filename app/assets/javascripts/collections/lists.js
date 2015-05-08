@@ -6,6 +6,6 @@ TrelloClone.Collections.Lists = Backbone.Collection.extend({
   },
 
   nestedSet: function (json) {
-    
+    this.set(this.parse(json));
   }
 });
