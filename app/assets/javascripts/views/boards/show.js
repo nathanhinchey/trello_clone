@@ -1,4 +1,7 @@
 TrelloClone.Views.BoardShow = Backbone.CompositeView.extend({
+  tagName: "li",
+  className: "board",
+
   template: JST['boards/show'],
 
   initialize: function() {
