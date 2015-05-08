@@ -7,4 +7,4 @@ TrelloClone.Views.Card = Backbone.View.extend({
 
     return this;
   }
-};
+});

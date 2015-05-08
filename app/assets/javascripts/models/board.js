@@ -2,7 +2,7 @@ TrelloClone.Models.Board = Backbone.Model.extend({
   urlRoot: "/api/boards",
 
   parse: function (response) {
-    this.lists().nestedSet(response.lists);
+    this.lists().set(response.lists, { parse: true});
     delete response.lists;
 
     return response;

@@ -3,9 +3,5 @@ TrelloClone.Collections.Lists = Backbone.Collection.extend({
 
   initialize: function(stuff, options){
     this.board = options.board;
-  },
-
-  nestedSet: function (json) {
-    this.set(this.parse(json));
   }
 });
