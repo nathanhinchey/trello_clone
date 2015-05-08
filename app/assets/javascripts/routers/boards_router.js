@@ -1,7 +1,6 @@
 TrelloClone.Routers.BoardsRouter = Backbone.Router.extend({
   initialize: function (options) {
-    this.$rootEl = options.$rootEl;
-    console.log("initialize router");
+    this.$contentEl = options.$contentEl;
   },
 
   routes: {
@@ -11,10 +10,9 @@ TrelloClone.Routers.BoardsRouter = Backbone.Router.extend({
   },
 
   show: function (id) {
-    console.log("enter show in router");
     var board = new TrelloClone.Models.Board({id: id});
     board.fetch();
     var view = new TrelloClone.Views.BoardShow({model: board});
-    this.$rootEl.html(view.render().$el);
+    this.$contentEl.html(view.render().$el);
   }
 });

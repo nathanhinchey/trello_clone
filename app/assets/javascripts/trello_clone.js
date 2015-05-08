@@ -5,10 +5,9 @@ window.TrelloClone = {
   Routers: {},
   initialize: function() {
     var router = new TrelloClone.Routers.BoardsRouter({
-      $rootEl: $("body")
+      $contentEl: $("#main")
     });
     Backbone.history.start();
-    console.log("initialize TrelloClone");;
   }
 };
 
