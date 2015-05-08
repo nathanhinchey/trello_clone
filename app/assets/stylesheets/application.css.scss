@@ -18,3 +18,17 @@
 form, h1 {
   margin-left: 10px;
 }
+
+ul {
+  list-style: none;
+}
+
+.list {
+  float: left;
+  display: block;
+}
+
+li {
+  outline: 1px solid blue;
+  padding: 5px;
+}
