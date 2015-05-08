@@ -1,1 +1,9 @@
 <h1><%= board.escape("title") %></h1>
+<ul class="lists">
+  <% _.each(board.get("lists"), function (list) { %>
+    <li><%= _.escape(list.title) %></li>
+  <% }); %>
+</ul>
+
+<% window.board = board %>
+<%= board.lists %>
