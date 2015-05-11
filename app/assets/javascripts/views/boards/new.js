@@ -17,9 +17,9 @@ TrelloClone.Views.BoardNew = Backbone.View.extend({
   submit: function (event) {
     event.preventDefault();
     var params = this.$el.serializeJSON();
-    var board = new TrelloClone.Models.Board(params['board']);
+    var board = new TrelloClone.Models.Board();
 
-    board.save({}, {
+    board.save(params['board'], {
       success: function () {
         Backbone.history.navigate("boards/" + board.id, {
           trigger: true
