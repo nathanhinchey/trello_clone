@@ -18,7 +18,6 @@ TrelloClone.Views.BoardNew = Backbone.View.extend({
     event.preventDefault();
     var params = this.$el.serializeJSON();
     var board = new TrelloClone.Models.Board(params['board']);
-    console.log(this.$el);
 
     board.save({}, {
       success: function () {
