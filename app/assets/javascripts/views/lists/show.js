@@ -2,6 +2,11 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
   tagName: "li",
   className: "list",
 
+  events: {
+    'click .show-new-card-form': 'showNewCardForm',
+    'submit .newcard': 'makeCard'
+  },
+
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
 
@@ -19,5 +24,24 @@ TrelloClone.Views.ListShow = Backbone.CompositeView.extend({
     this.attachSubviews();
 
     return this;
+  },
+
+  showNewCardForm: function (event) {
+    event.preventDefault();
+    this.$el.find('.newcard').removeClass('hidden');
+    console.log("showNewCardForm");
+  },
+
+  makeCard: function (event) {
+    event.preventDefault();
+    params = $(event.currentTarget).serializeJSON();
+    params["card"]["list_id"] = this.model.id;
+    var card = new TrelloClone.Models.Card();
+    var cards = this.model.cards();
+    card.save(params["list"], {
+      success: function () {
+        cards.add(card);
+      }
+    })
   }
 });
